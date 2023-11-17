@@ -4,24 +4,18 @@ import connectDB from "./config/dbConnect.js";
 const port = process.env.PORT || 5000;
 
 const main = async () => {
+  let server;
   try {
     const isConnected = await connectDB();
 
-    const server = app.listen(port, () => {
+    server = app.listen(port, () => {
       console.log(`App listening on port ${port}`);
     });
-
-    if (isConnected != undefined) {
-      console.log("Database connected");
-      server;
-    } else {
-      console.log("Database not connected");
-      server.close(() => {
-        process.exit(1);
-      });
-    }
+    console.log("Database connected");
   } catch (error) {
     console.log(error);
+    console.log("Database not connected");
+    process.exit(1);
   }
 };
 

@@ -20,7 +20,7 @@ export const splitCompute = tryCatch(async (req, res) => {
     { flat, percentage, ratio },
     Amount
   );
-  console.log({ balance });
+
   if (balance < 0) {
     throw new CustomError("Insuffient Fund", 400);
   }

@@ -49,8 +49,6 @@ export const getBalanceWithTransaction = (
       })
     : [];
 
-  console.log({ allRatio, percentageBalance });
-
   const ratioBalance = ratio.length
     ? allRatio.reduce((amount, ratio) => {
         let total = 0;
